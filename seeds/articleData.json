@@ -1,19 +1,19 @@
 [
   {
     "article_title": "Handlebars in 10 minutes",
-    "article_content": "A mobile app that will send you notifications whenever a concert is playing in your area.",
+    "article_content": "The key to Handlebars, like any npm package, is to read the documentation, examine examples, and experiment.",
     "article_author": 1,
     "article_createDate": "12/12/20"
   },
   {
     "article_title": "Security for the apathetic",
-    "article_content": "A web app that will give users 10 new technical questions each day and track their progress in things like programming, cybersecurity, database architecture, and more!",
+    "article_content": "If you think that you can ignore security and remain untouched, consider this...",
     "article_author": 2,
     "article_createDate": "12/20/20"
   },
   {
     "article_title": "Impossible algorithm questions",
-    "article_content": "A game for Windows and macOS where players move a ball through a series of increasingly challenging mazes.",
+    "article_content": "One way to weed out all candidates for a position is to expect answers to impossible questions...",
     "article_author": 3,
     "article_createDate": "3/30/21"
   }
