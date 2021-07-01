@@ -1,0 +1,25 @@
+<div class="menu-container">
+  <div class="card-header col-md-12 text-center">
+    <h2>
+      Blog Posts
+    </h2>
+  </div>
+  {{#each articles as |article|}}
+  <div class="article col-md-4">
+    <p>
+      {{article.id}}.
+      {{article.article_title}}
+    </p>
+  </div>
+  <div class="col-md-5">
+    <p>
+      {{article.article_content}}
+    </p>
+  </div>
+  <div class="col-md-3">
+    Creation date: {{article.article_createDate}}
+  </div>
+  {{/each}}
+</div>
+
+<script src="/js/add-article.js"></script>
