@@ -1,0 +1,52 @@
+<div class="menu-container">
+  {{!-- <div class="card-header col-md-12 text-center">
+    <h2>
+      Add an blog post*******
+    </h2>
+  </div> --}}
+  <!-- This is the form for adding a new article -->
+  <div class="add-article-container">
+    <h2>
+      Add a blog post!
+    </h2>
+    <form class="new-article-form">
+      <label for="article_name">
+        Article Title:
+      </label>
+      <br />
+      <textarea id="articlr_name" name="article_name" rows="2" cols="30">
+      {{article_title}}
+    </textarea>
+      <br />
+      <label for="article_content">
+        Content:
+      </label>
+      <br />
+      <textarea id="article_content" name="article_content" rows="5" cols="30">
+      {{article_content}}
+    </textarea>
+      <br />
+      <label for="article_author">
+        Author:
+      </label>
+      <br />
+      <textarea id="article_author" name="article_author" rows="2" cols="30">
+      {{article_author}}
+    </textarea>
+      <br />
+      <label for="article_author">
+        Date:
+      </label>
+      <br />
+      <textarea id="article_createDate" name="article_createDate" rows="2" cols="30">
+      {{article_createDate}}
+    </textarea>
+      <br />
+      <button type="submit" value="Submit">
+        Submit
+      </button>
+    </form>
+  </div>
+</div>
+
+<script src="/js/add-article.js"></script>
