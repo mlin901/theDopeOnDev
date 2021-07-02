@@ -1,24 +1,45 @@
 <div class="menu-container">
-  <div class="card-header col-md-12 text-center">
+  {{!-- <div class="card-header col-md-12 text-center">
     <h2>
       Blog Posts
     </h2>
-  </div>
+  </div> --}}
   {{#each articles as |article|}}
-  <div class="article col-md-4">
-    <p>
-      {{article.id}}.
+  <a href="/article/{{id}}">
+    {{!-- <div class="article col-md-4">
+      <p>
+        {{article.id}}.
+        {{article.article_title}}
+      </p>
+    </div>
+    <div class="col-md-5">
+      <p>
+        {{article.article_content}}
+      </p>
+    </div>
+    <div class="col-md-3">
+      Creation date: {{article.article_createDate}}
+    </div> --}}
+
+    {{!-- <div class="menu-container"> --}}
+  <div class="card-header col-md-12 text-center">
+    <h2>
       {{article.article_title}}
-    </p>
+    </h2>
   </div>
-  <div class="col-md-5">
+  {{!-- <div class="article-stats">
+    <p>
+      Article number: {{article.id}}<br>
+      Creation date: {{article.article_createDate}}
+    </p>
+  </div>   --}}
+  <div class="article-content">
     <p>
       {{article.article_content}}
     </p>
   </div>
-  <div class="col-md-3">
-    Creation date: {{article.article_createDate}}
-  </div>
+{{!-- </div> --}}
+  </a>
   {{/each}}
 </div>
 
