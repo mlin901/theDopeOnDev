@@ -1,6 +1,6 @@
 const { Model, DataTypes } = require('sequelize');
 const sequelize = require('../config/connection');
-
+// From ucd-sac-fsf-pt-03-2021-u-c/14-MVC/01-Activities/28-Stu_Mini-Project
 class Article extends Model {}
 
 Article.init(   // *****Need to add foreign key stuff
@@ -20,7 +20,7 @@ Article.init(   // *****Need to add foreign key stuff
       allowNull: true,
     },
     article_author: {
-      type: DataTypes.STRING,
+      type: DataTypes.INTEGER,
       allowNull: false,
     },
     article_createDate: {    // ******Needs some sort of date format
