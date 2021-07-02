@@ -10,14 +10,23 @@
     <header class="display-flex justify-space-between align-center p-2">
       <h1>
         The Dope on Dev    
-        {{!-- ****This needs to be a conditional #if with "The Dop on Dev" and "Your Dashboard"--}}
+        {{!-- ****This needs to be a conditional #if with "The Dope on Dev" and "Your Dashboard"--}}
       </h1>
-      <h4>A blog site for the real dope on tech</h4>
+      <h4>Blogging the real dope on tech</h4>
     </header>
-      <main class="container container-fluid mt-5">
-        {{{ body }}}
-      </main>
+    <nav>
+      <a href="/">Home</a>
+      {{#if loggedIn}}
+      <button id="logout" class="btn-no-style">Logout</button>
+      {{else}}
+      <a href="/login">Login</a>
+      {{/if}}
+    </nav>
+
+    <main class="container container-fluid mt-5">
+      {{{ body }}}
+    </main>
   </div>
-  </body>
+</body>
 
 </html>
