@@ -1,0 +1,57 @@
+{{!-- <div class="article-card">
+  <div class="article-card-header">
+    {{article_title}}
+  </div>
+  <div class="article-body">
+    <p>
+      Content:
+      {{article_content}}
+    </p>
+    <p>
+      Author:
+      {{article_author}}
+    </p>
+  </div>
+</div> --}}
+
+<!-- This is the form for updating *********. According to MVC framework, what is this form responsible for? -->
+<!-- This form is responsible for the UI logic, or the components in the View that the user will interact with. -->
+<!--What isn't it responsible for? -->
+<!--It is not responsible for data-related logic, requests, or business-logic. -->
+
+<div class="edit-article-container">
+  <h2>
+    Update Article
+  </h2>
+  <form class="edit-article-form">
+    <label for="article_title">
+      Article Title:
+    </label>
+    <br />
+    <textarea id="article_title" name="article_title" rows="2" cols="30">
+      {{article_title}}
+    </textarea>
+    <br />
+    <label for="article_content">
+      Content:
+    </label>
+    <br />
+    <textarea id="article_content" name="article_content" rows="5" cols="30">
+      {{article_content}}
+    </textarea>
+    <br />
+    <label for="article_author">
+      Article author:
+    </label>
+    <br />
+    <textarea id="article_author" name="article_author" rows="2" cols="30">
+      {{article_author}}
+    </textarea>
+    <br />
+    <br />
+    <button type="submit" value="Submit">
+      Submit
+    </button>
+  </form>
+</div>
+<script src="/js/edit-article.js"></script>
