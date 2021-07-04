@@ -10,33 +10,6 @@ router.get('/', async (req, res) => {
     res.render('all', { articles });
 });
 
-// GET one article
-// router.get('/article/:id', withAuth, async (req, res) => {
-//   try {
-//     const dbArticleData = await Article.findByPk(req.params.id, {
-//       include: [
-//         {
-//           model: Article,
-//           attributes: [
-//             'id',
-//             'article_title',
-//             'article_content',
-//             'article_author',
-//             'article_createDate',
-//           ],
-//         },
-//       ],
-//     });
-
-//     const article = dbArticleData.get({ plain: true });
-//     res.render('article', { article, loggedIn: req.session.loggedIn });
-//   } catch (err) {
-//     console.log(err);
-//     res.status(500).json(err);
-//   }
-// });
-
-// *******
 // route to get one article
   router.get('/article/:id', async (req, res) => {
     try{ 
@@ -70,15 +43,7 @@ router.get('/', async (req, res) => {
     res.render('login');
   });
 
-  // router.get('/edit/:id', (req, res) => {
-  //   if (req.session.loggedIn) {
-  //     res.redirect('/');
-  //     return;
-  //   }
-  
-  //   res.render('editarticle');
-  // });
-  router.get('/edit/:id', async (req, res) => {
+  router.get('/article/edit/:id', async (req, res) => {
     try{ 
         const articleData = await Article.findByPk(req.params.id);
         if(!articleData) {
@@ -91,21 +56,6 @@ router.get('/', async (req, res) => {
           res.status(500).json(err);
       };     
   });
-  // route to get one dish
-  // router.get('/dish/:id', async (req, res) => {
-  //   try{ 
-  //       const dishData = await Dish.findByPk(req.params.id);
-  //       if(!dishData) {
-  //           res.status(404).json({message: 'No dish with this id!'});
-  //           return;
-  //       }
-  //       const dish = dishData.get({ plain: true });
-  //       res.render('dish', dish);
-  //     } catch (err) {
-  //         res.status(500).json(err);
-  //     };     
-  // });
-
 
   router.get('/signup', (req, res) => {
     if (req.session.loggedIn) {
