@@ -17,15 +17,15 @@ router.post('/', async (req, res) => {
 });
 
 // This action method is the Controller. It accepts input and sends data to the Model and the View. // *************
-router.put('/edit/:id', async (req, res) => {
+router.put('/:id', async (req, res) => {
   // Sending the data to the Model so that one article can be updated with new data in the database.
   try {
-    const dish = await Article.update(
+    const article = await Article.update(
       {
         article_title: req.body.article_title,
         article_content: req.body.article_content,
         article_author: req.body.article_author,
-        article_createDate: req.body.article_createDate,
+        // article_createDate: req.body.article_createDate,
       },
       {
         where: {
