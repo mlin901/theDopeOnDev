@@ -3,7 +3,7 @@ async function newFormHandler(event) {
 
   const article_title = document.querySelector('#article_name').value;
   const article_content = document.querySelector('#article_content').value;
-  const article_author = document.querySelector('#article_author').value;
+  const user_id = document.querySelector('#user_id').value;                   
   const article_createDate = document.querySelector('#article_createDate').value;
 
   const response = await fetch(`/api/article`, {
@@ -11,7 +11,7 @@ async function newFormHandler(event) {
     body: JSON.stringify({
       article_title,
       article_content,
-      article_author,
+      user_id,                 
       article_createDate,
     }),
     headers: {
