@@ -19,13 +19,22 @@ Article.init(   // *****Need to add foreign key stuff
       type: DataTypes.STRING,  // ******Is STRING good enough?
       allowNull: true,
     },
-    article_author: {
-      type: DataTypes.INTEGER,
-      allowNull: false,
-    },
+    // article_author: {      
+    //   type: DataTypes.INTEGER,
+    //   allowNull: false,
+    // },
     article_createDate: {    // ******Needs some sort of date format
-      type: DataTypes.STRING,
-      allowNull: false,    },
+      type: DataTypes.DATE,
+      allowNull: false,
+      defaultValue: DataTypes.NOW,
+    },
+    user_id: {                 
+      type: DataTypes.INTEGER,
+      references: {
+        model: 'user',
+        key: 'id',
+      },
+    },
   },
   {
     sequelize,
