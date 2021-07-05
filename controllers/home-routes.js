@@ -42,7 +42,7 @@ router.get('/', async (req, res) => {
 });
 
 // route to get one article
-  router.get('/article/:id', async (req, res) => {
+  router.get('/article/:id', withAuth, async (req, res) => {
     try{ 
         const articleData = await Article.findByPk(req.params.id);
         if(!articleData) {
@@ -56,17 +56,17 @@ router.get('/', async (req, res) => {
       };     
   });
 
-  router.get('/create', (req, res) => {
-    if (req.session.loggedIn) {
-      res.redirect('/');
-      return;
-    }
+  router.get('/create', withAuth, (req, res) => {
+    // if (!req.session.logged_in) {
+    //   res.redirect('/');
+    //   return;
+    // }
   
     res.render('create');
   });
 
   router.get('/login', (req, res) => {
-    if (req.session.loggedIn) {
+    if (req.session.logged_in) {
       res.redirect('/');
       return;
     }
@@ -74,7 +74,7 @@ router.get('/', async (req, res) => {
     res.render('login');
   });
 
-  router.get('/article/edit/:id', async (req, res) => {
+  router.get('/article/edit/:id', withAuth, async (req, res) => {
     try{ 
         const articleData = await Article.findByPk(req.params.id);
         if(!articleData) {
@@ -89,7 +89,7 @@ router.get('/', async (req, res) => {
   });
 
   router.get('/signup', (req, res) => {
-    if (req.session.loggedIn) {
+    if (req.session.logged_in) {
       res.redirect('/');
       return;
     }
