@@ -14,7 +14,7 @@ const seedDatabase = async () => {
     returning: true,
   });
 
-  for (const article of articleData) {
+  for (const article of articleData) {   // *************** Can't this be removed?
     await Article.create({
       ...article,
       user_id: users[Math.floor(Math.random() * users.length)].id,
