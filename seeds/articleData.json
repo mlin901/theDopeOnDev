@@ -2,19 +2,16 @@
   {
     "article_title": "Handlebars in 10 minutes",
     "article_content": "The key to Handlebars, like any npm package, is to read the documentation, examine examples, and experiment.",
-    "article_author": 1,
-    "article_createDate": "12/12/20"
+    "user_id": 1
   },
   {
     "article_title": "Security for the apathetic",
     "article_content": "If you think that you can ignore security and remain untouched, consider this...",
-    "article_author": 2,
-    "article_createDate": "12/20/20"
+    "user_id": 2
   },
   {
     "article_title": "Impossible algorithm questions",
     "article_content": "One way to weed out all candidates for a position is to expect answers to impossible questions. If you don't select any candidate, you won't get a bad one...",
-    "article_author": 3,
-    "article_createDate": "3/30/21"
+    "user_id": 3
   }
 ]
