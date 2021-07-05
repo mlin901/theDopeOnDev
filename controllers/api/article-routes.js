@@ -7,7 +7,7 @@ router.post('/', async (req, res) => {
     const articleData = await Article.create({
       article_title: req.body.article_title,
       article_content: req.body.article_content,
-      article_author: req.body.article_author,
+      user_id: req.body.user_id,   
       article_createDate: req.body.article_createDate,
     });
     res.status(200).json(articleData);
@@ -24,7 +24,7 @@ router.put('/:id', async (req, res) => {
       {
         article_title: req.body.article_title,
         article_content: req.body.article_content,
-        article_author: req.body.article_author,
+        user_id: req.body.user_id,      
         // article_createDate: req.body.article_createDate,
       },
       {
