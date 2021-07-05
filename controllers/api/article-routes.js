@@ -1,8 +1,9 @@
 const router = require('express').Router();
 const Article = require('../../models/Article');
+const withAuth = require('../../utils/auth');
 
 // route to create/add an article
-router.post('/', async (req, res) => {
+router.post('/', withAuth, async (req, res) => {
   try {
     const articleData = await Article.create({
       article_title: req.body.article_title,
@@ -17,7 +18,7 @@ router.post('/', async (req, res) => {
 });
 
 // This action method is the Controller. It accepts input and sends data to the Model and the View. // *************
-router.put('/:id', async (req, res) => {
+router.put('/:id', withAuth, async (req, res) => {
   // Sending the data to the Model so that one article can be updated with new data in the database.
   try {
     const article = await Article.update(
