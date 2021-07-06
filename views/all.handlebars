@@ -1,9 +1,9 @@
 <div class="menu-container">
-  {{!-- <div class="card-header col-md-12 text-center">
+  {{!-- <div class="card-header col-md-12 text-center"> --}}
     <h2>
-      Blog Posts
+      All Blog Posts
     </h2>
-  </div> --}}
+  {{!-- </div> --}}
   {{#each articles as |article|}}
   <a href="/article/{{id}}">
     {{!-- <div class="article col-md-4">
@@ -23,9 +23,9 @@
 
     {{!-- <div class="menu-container"> --}}
   <div class="card-header col-md-12 text-center">
-    <h2>
+    <h3>
       {{article.article_title}}
-    </h2>
+    </h3>
   </div>
   <div class="article-stats">
     <p>
