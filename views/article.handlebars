@@ -19,7 +19,9 @@
     </p>
   </div>
   {{!-- **********Make this conditional. If it's your aricle... --}}
+  {{!-- {{#if req.session.user_id == user.id}}  This doesn't work --}}
   <a href="edit/{{article.id}}">Edit article</a>
+  {{!-- {{/if}} --}}
   {{!-- **********Make this conditional. If it's your aricle... --}}
   {{!-- <a href="/comment/{{article.id}}"> Comment</a> ******Add comment route --}}
 </div>
