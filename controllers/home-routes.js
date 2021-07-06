@@ -13,7 +13,6 @@ const withAuth = require('../utils/auth');
 //     res.render('all', { articles });
 // });
 
-// ~~~~~~~~~~~~~~~~~~~~~~
 router.get('/', async (req, res) => {
   try {
     // Get all articles and JOIN with user data
@@ -40,6 +39,34 @@ router.get('/', async (req, res) => {
     res.status(500).json(err);
   }
 });
+
+
+
+router.get('/dashboard', withAuth, async (req, res) => {
+  try {
+    const articleData = await Article.findAll({
+      where: {
+        user_id: req.session.user_id,
+      },
+  });
+
+    // Serialize data so the template can read it
+    const articles = articleData.map((article) => article.get({ plain: true }));
+
+    // Pass serialized data and session flag into template
+    res.render('dashboard', { 
+      articles, 
+      logged_in: req.session.logged_in 
+    });
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
+
+
+
+
+
 
 // route to get one article
   router.get('/article/:id', withAuth, async (req, res) => {
