@@ -40,7 +40,8 @@ const PORT = process.env.PORT || 3003;
 const hbs = exphbs.create({ });
 
 const sess = {
-  secret: process.env.SESS_SECRET, // *******Does this work?
+  // secret: process.env.SESS_SECRET, // *******Does this work?
+  secret: 'somesecret',
   cookie: {},
   resave: false,
   saveUninitialized: true,
