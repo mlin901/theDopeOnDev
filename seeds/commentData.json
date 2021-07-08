@@ -1,0 +1,20 @@
+[
+  {
+    "comment_content": "This is great. I might read it sometime.",
+    "comment_createDate": "2021-01-01",
+    "article_id": 1,
+    "user_id": 1
+  },
+  {
+    "comment_content": "Wonderful. I'll tell my grandchildren about this.",
+    "comment_createDate": "2021-01-01",
+    "article_id": 1,
+    "user_id": 2
+  },
+  {
+    "comment_content": "Please! Don't bother me with details.",
+    "comment_createDate": "2021-01-01",
+    "article_id": 1,
+    "user_id": 3
+  }
+]
