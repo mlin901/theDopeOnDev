@@ -17,22 +17,29 @@ router.get('/', async (req, res) => {
   try {
     // Get all articles and JOIN with user data
     const articleData = await Article.findAll(
-    //   {                                          // ~~~~~~~~~~~~Need to figure out how to add this back in
-    //   include: [
-    //     {
-    //       model: User,
-    //       attributes: ['id'],  
-    //     },
-    //   ],
-    // }
+      {                                          // ~~~~~~~~~~~~Need to figure out how to add this back in
+      include: [    // &&&&&&&&&&&&&&&&& begin
+        {
+          model: User,
+          attributes: ['id'],  
+        },
+        // {
+        //   model: Comment,
+        //   attributes: ['id'],
+        // }
+      ],    // &&&&&&&&&&&&&&&& end
+    }
     );
+    // const commentData = await Comment.findAll(); // &&&&&&&&&&&&&&&&&
 
     // Serialize data so the template can read it
     const articles = articleData.map((article) => article.get({ plain: true }));
+    // const comments = commentData.map((comment) => comment.get({ plain: true })); // &&&&&&&&&&&&&&&&&
 
     // Pass serialized data and session flag into template
     res.render('all', { 
-      articles, 
+      articles,
+      // comments,  // &&&&&&&&&&&&&&&&& 
       logged_in: req.session.logged_in 
     });
   } catch (err) {
