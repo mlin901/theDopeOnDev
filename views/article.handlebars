@@ -15,18 +15,21 @@
       {{article.article_content}}
     </p>
   </div>
-  <section class="flex-row justify-center">
-    {{#each article.comment as |comment|}}
-    <section class="card">        
-        <div class="card-body">
-          <p>{{comment.user_id}}</p>
-          <p>{{comment.comment_createDate}}</p>  
-          <p>{{comment.comment_content}}</p>
-          <img src="/images/{{filename}}" alt="{{description}}">
+  <h2>Comments</h2>
+
+  {{#if article.comments}}
+    <div class="comment-area">
+    {{#each article.comments as |comment|}}
+        <div class="comment-individual">
+          <p>{{comment_createDate}}</p>  
+          <p>{{comment_content}}</p>
         </div>
-    </section>
+    </div>
     {{/each}}
-  </section>
+  {{else}}
+    <p>There are no comments for this article.</p>
+  {{/if}}
+
 
 
   {{!-- **********Make this conditional. If it's your aricle... --}}
