@@ -114,6 +114,17 @@ router.get('/dashboard', withAuth, async (req, res) => {
     res.render('login');
   });
 
+
+  router.get('/addcomment', withAuth, (req, res) => {
+    // if (!req.session.logged_in) {
+    //   res.redirect('/');
+    //   return;
+    // }
+  
+    res.render('createcomment');
+  });
+
+
   router.get('/article/edit/:id', withAuth, async (req, res) => {
     try{ 
         const articleData = await Article.findByPk(req.params.id);
