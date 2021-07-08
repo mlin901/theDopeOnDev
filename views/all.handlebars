@@ -40,27 +40,29 @@
   </div>
 {{!-- </div> --}}
   </a>
-  <div>  {{!-- &&&&&&&&&&&& begin --}}
+
+{{!-- 
+  <div>  
   {{#if comments.length}}
   <div class="col-md-6 project-list">
     <h3>Current Projects:</h3>
 
-{{!-- &&&&&&&&&&&& if comment.article_id == article.id --}}
     {{#each comments as |comment|}}
     if (comment.article_id == article.id) {
       <div class="row mb-2">
         <div class="col-md-8">
           <h4><a href="/project/{{comment.id}}">{{comment.name}}</a></h4>
         </div>
-        {{!-- <div class="col-md-4">
+        <div class="col-md-4">
           <button class="btn btn-sm btn-danger" data-id="{{comment.id}}">DELETE</button>
-        </div> --}}
+        </div>
       </div>
     }
     {{/each}}
   </div>
   {{/if}}
-  </div>   {{!-- &&&&&&&&&&&& end --}}
+  </div> --}}
+
   {{/each}}
   <a href="/create">Create an article</a>
 </div>

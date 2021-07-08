@@ -1,13 +1,10 @@
 <div class="menu-container">
-  
   <div class="card-header col-md-12">
-
     <h2>
       {{article.article_title}}
     </h2>
   </div>
   <div class="article-stats">
-
     <p>
       Article number: {{article.id}}<br>
       Creation date: {{article.article_createDate}}
@@ -18,6 +15,20 @@
       {{article.article_content}}
     </p>
   </div>
+  <section class="flex-row justify-center">
+    {{#each article.comment as |comment|}}
+    <section class="card">        
+        <div class="card-body">
+          <p>{{comment.user_id}}</p>
+          <p>{{comment.comment_createDate}}</p>  
+          <p>{{comment.comment_content}}</p>
+          <img src="/images/{{filename}}" alt="{{description}}">
+        </div>
+    </section>
+    {{/each}}
+  </section>
+
+
   {{!-- **********Make this conditional. If it's your aricle... --}}
   {{!-- {{#if req.session.user_id == user.id}}  This doesn't work --}}
   <a href="edit/{{article.id}}">Edit article</a>

@@ -1,7 +1,7 @@
 // const router = require('express').Router();
 // const Article = require('../models/Article');
 const router = require('express').Router();
-const { Article, User } = require('../models');
+const { Article, User, Comment } = require('../models');
 const withAuth = require('../utils/auth');
 
 // route to get all articles      // ~~~~~~~~~~~~~~~~This is what the following replaced
@@ -18,28 +18,21 @@ router.get('/', async (req, res) => {
     // Get all articles and JOIN with user data
     const articleData = await Article.findAll(
       {                                          // ~~~~~~~~~~~~Need to figure out how to add this back in
-      include: [    // &&&&&&&&&&&&&&&&& begin
+      include: [  
         {
           model: User,
           attributes: ['id'],  
         },
-        // {
-        //   model: Comment,
-        //   attributes: ['id'],
-        // }
-      ],    // &&&&&&&&&&&&&&&& end
+
+      ], 
     }
     );
-    const commentData = await Comment.findAll(); // &&&&&&&&&&&&&&&&&
-
     // Serialize data so the template can read it
     const articles = articleData.map((article) => article.get({ plain: true }));
-    const comments = commentData.map((comment) => comment.get({ plain: true })); // &&&&&&&&&&&&&&&&&
 
     // Pass serialized data and session flag into template
     res.render('all', { 
       articles,
-      comments,  // &&&&&&&&&&&&&&&&& 
       logged_in: req.session.logged_in 
     });
   } catch (err) {
@@ -71,23 +64,36 @@ router.get('/dashboard', withAuth, async (req, res) => {
 });
 
 
-
-
-
-
 // route to get one article
   router.get('/article/:id', withAuth, async (req, res) => {
     try{ 
-        const articleData = await Article.findByPk(req.params.id);
-        if(!articleData) {
-            res.status(404).json({message: 'No article with this ID!'});
-            return;
-        }
-        const article = articleData.get({ plain: true });
-        res.render('article', { article });
-      } catch (err) {
-          res.status(500).json(err);
-      };     
+        // const articleData = await Article.findByPk(req.params.id);
+      const articleData = await Article.findByPk(req.params.id, {
+        include: [
+          {
+            model: Comment,
+            attributes: [
+              'id',
+              'comment_content',
+              'comment_createDate',
+              'article_id',
+              'user_id',
+            ],
+          },
+        ],
+      });
+
+      if(!articleData) {
+          res.status(404).json({message: 'No article with this ID!'});
+          return;
+      }
+
+      const article = articleData.get({ plain: true });
+      res.render('article', { article, loggedIn: req.session.loggedIn  });
+    } catch (err) {
+      console.log(err);
+      res.status(500).json(err);
+    };     
   });
 
   router.get('/create', withAuth, (req, res) => {
