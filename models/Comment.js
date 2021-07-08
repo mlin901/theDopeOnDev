@@ -21,7 +21,10 @@ Comment.init(   // *****Need to add foreign key stuff
     },
     article_id: {
       type: DataTypes.INTEGER,
-      allowNull: false,
+      references: {
+        model: 'article',
+        key: 'id',
+      },
     },
     user_id: {                 
       type: DataTypes.INTEGER,

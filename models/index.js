@@ -12,12 +12,12 @@ Article.belongsTo(User, {
 });
 
 Article.hasMany(Comment, {   
-  foreignKey: 'id', // *********??????
+  foreignKey: 'article_id', // *********??????
   onDelete: 'CASCADE'
 });
 
 Comment.belongsTo(Article, {
-  foreignKey: 'id' // *********??????
+  foreignKey: 'article_id' // *********??????
 });
 
 

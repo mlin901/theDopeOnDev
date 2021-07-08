@@ -30,16 +30,16 @@ router.get('/', async (req, res) => {
       ],    // &&&&&&&&&&&&&&&& end
     }
     );
-    // const commentData = await Comment.findAll(); // &&&&&&&&&&&&&&&&&
+    const commentData = await Comment.findAll(); // &&&&&&&&&&&&&&&&&
 
     // Serialize data so the template can read it
     const articles = articleData.map((article) => article.get({ plain: true }));
-    // const comments = commentData.map((comment) => comment.get({ plain: true })); // &&&&&&&&&&&&&&&&&
+    const comments = commentData.map((comment) => comment.get({ plain: true })); // &&&&&&&&&&&&&&&&&
 
     // Pass serialized data and session flag into template
     res.render('all', { 
       articles,
-      // comments,  // &&&&&&&&&&&&&&&&& 
+      comments,  // &&&&&&&&&&&&&&&&& 
       logged_in: req.session.logged_in 
     });
   } catch (err) {
