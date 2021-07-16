@@ -6,7 +6,7 @@
   </div>
   <div class="article-stats">
     <p id="article-number">Article number: {{article.id}}</p>
-    <p>Creation date: {{article.article_createDate}}</p> 
+    <p>Creation date: {{format_date article.article_createDate}}</p> 
     </p>
   </div>
   <div class="article-content">
@@ -20,7 +20,7 @@
     <div class="comment-area">
     {{#each article.comments as |comment|}}
         <div class="comment-individual">
-          <p>{{comment_createDate}}</p>  
+          <p>{{format_date comment_createDate}}</p>  
           <p>{{comment_content}}</p>
         </div>
     </div>
