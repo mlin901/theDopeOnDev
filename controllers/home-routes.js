@@ -17,7 +17,7 @@ router.get('/', async (req, res) => {
   try {
     // Get all articles and JOIN with user data
     const articleData = await Article.findAll(
-      {                                          // ~~~~~~~~~~~~Need to figure out how to add this back in
+      {                                         
       include: [  
         {
           model: User,
@@ -89,7 +89,7 @@ router.get('/dashboard', withAuth, async (req, res) => {
       }
 
       const article = articleData.get({ plain: true });
-      res.render('article', { article, loggedIn: req.session.loggedIn  });
+      res.render('article', { article, loggedIn: req.session.loggedIn });
     } catch (err) {
       console.log(err);
       res.status(500).json(err);
@@ -115,13 +115,13 @@ router.get('/dashboard', withAuth, async (req, res) => {
   });
 
 
-  router.get('/addcomment', withAuth, (req, res) => {
+  router.get('/addcomment/:id', withAuth, withAuth, (req, res) => {
     // if (!req.session.logged_in) {
     //   res.redirect('/');
     //   return;
     // }
-  
-    res.render('createcomment');
+    const article = {articleId: req.params.id};
+    res.render('createcomment', article);
   });
 
 
