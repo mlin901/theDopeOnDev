@@ -1,8 +1,9 @@
 const { Model, DataTypes } = require('sequelize');
 const sequelize = require('../config/connection');
+
 class Comment extends Model {}
 
-Comment.init(   // *****Need to add foreign key stuff
+Comment.init(  
   {
     id: {
       type: DataTypes.INTEGER,
@@ -11,16 +12,17 @@ Comment.init(   // *****Need to add foreign key stuff
       autoIncrement: true,
     },
     comment_content: {
-      type: DataTypes.STRING,  // ******Is STRING good enough?
-      allowNull: true,
+      type: DataTypes.STRING, 
+      allowNull: false,
     },
-    comment_createDate: {    // ******Needs some sort of date format
+    comment_createDate: {    
       type: DataTypes.DATE,
       allowNull: false,
       defaultValue: DataTypes.NOW,
     },
     article_id: {
       type: DataTypes.INTEGER,
+      allowNull: false,
       references: {
         model: 'article',
         key: 'id',
@@ -28,6 +30,7 @@ Comment.init(   // *****Need to add foreign key stuff
     },
     user_id: {                 
       type: DataTypes.INTEGER,
+      allowNull: false,
       references: {
         model: 'user',
         key: 'id',
