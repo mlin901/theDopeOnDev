@@ -1,18 +1,27 @@
 const router = require('express').Router();
-const Comment = require('../../models/Comment');
+// const Comment = require('../../models/Comment');
+const { Comment } = require('../../models');
 const withAuth = require('../../utils/auth');
 
 // route to create/add a comment
 router.post('/', withAuth, async (req, res) => {
+  console.log('Things should be better in all regards!!!')
+  console.log('- - - - -     - - - - -     - - - - - ');
+  console.log(req.body);
   try {
     const commentData = await Comment.create({
       comment_content: req.body.comment_content,
-      comment_createDate: req.body.comment_createDate,
-      article_id: req.body.article_id, // ******  
-      user_name: req.body.user_name,
+      article_id: req.body.article_id, 
+      user_id: req.session.user_id,
     });
+    console.log('.... ..... ...... ...... .... .... ');
+    console.log(`user id: ${req.session.user_id}`);
     res.status(200).json(commentData);
   } catch (err) {
+    console.log(`value---->`);
+    console.log(req.body.article_id);
+    console.log('error below =======');
+    console.log(err);
     res.status(400).json(err);
   }
 });
