@@ -4,7 +4,7 @@ async function editFormHandler(event) {
   event.preventDefault();
   const article_title = document.querySelector('#article_title').value;
   const article_content = document.querySelector('#article_content').value;
-  // const user_id = document.querySelector('#user_id').value;          
+  const article_createdate = document.querySelector('#create-date').innerHTML;
   
   // What will the value of has_nuts be if the box in the form is checked? 
   // The value of has_nuts will be true if the box is checked. 
@@ -25,7 +25,7 @@ async function editFormHandler(event) {
     body: JSON.stringify({
       article_title,
       article_content,
-      // user_id,                      
+      article_createDate: article_createdate,
     }),
     headers: {
       'Content-Type': 'application/json',
