@@ -1,18 +1,19 @@
+// const session = require("express-session");
+
 async function newCommentFormHandler(event) {
   event.preventDefault();
 
-  const article_title = document.querySelector('#article_name').value;
-  const article_content = document.querySelector('#article_content').value;
-  const user_id = document.querySelector('#user_id').value;                   
-  const article_createDate = document.querySelector('#article_createDate').value;
-
-  const response = await fetch(`/api/article`, {
+  // const comment_article_id = document.querySelector('#article_id').value;
+  const comment_article_id = document.querySelector('#article_id').innerHTML;
+  const comment_content = document.querySelector('#comment_content').value;
+  // const user_id = document.querySelector('#user_id').value;                   
+  // const comment_createDate = document.querySelector('#comment_createDate').value;
+ 
+  const response = await fetch(`/api/comment`, {
     method: 'POST',
     body: JSON.stringify({
-      article_title,
-      article_content,
-      user_id,                 
-      article_createDate,
+      comment_content,
+      article_id: comment_article_id,
     }),
     headers: {
       'Content-Type': 'application/json',
@@ -20,7 +21,7 @@ async function newCommentFormHandler(event) {
   });
 
   if (response.ok) {
-    document.location.replace('/');
+    document.location.replace(`/article/${comment_article_id}`);
   } else {
     alert('Failed to add blog post');
   }
