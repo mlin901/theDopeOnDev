@@ -8,8 +8,7 @@ router.post('/', withAuth, async (req, res) => {
     const articleData = await Article.create({
       article_title: req.body.article_title,
       article_content: req.body.article_content,
-      user_id: req.body.user_id,   
-      article_createDate: req.body.article_createDate,
+      user_id: req.session.user_id,   
     });
     res.status(200).json(articleData);
   } catch (err) {
@@ -26,7 +25,6 @@ router.put('/:id', withAuth, async (req, res) => {
         article_title: req.body.article_title,
         article_content: req.body.article_content,
         user_id: req.body.user_id,      
-        // article_createDate: req.body.article_createDate,
       },
       {
         where: {
