@@ -1,63 +1,18 @@
 <div class="menu-container">
-  {{!-- <div class="card-header col-md-12 text-center"> --}}
-    <h2>
-      Posts
-    </h2>
+    <h2>Posts</h2>
     <p>Click a post to add a comment.</p>
-  {{!-- </div> --}}
   {{#each articles as |article|}}
   <a href="/article/{{id}}">
-    {{!-- <div class="article col-md-4">
-      <p>
-        {{article.id}}.
-        {{article.article_title}}
-      </p>
-    </div>
-    <div class="col-md-5">
-      <p>
-        {{article.article_content}}
-      </p>
-    </div>
-    <div class="col-md-3">
-      Creation date: {{article.article_createDate}}
-    </div> --}}
-
-    {{!-- <div class="menu-container"> --}}
   <div class="card-header col-md-12">
     <h3>{{article.article_title}}</h3>
   </div>
   <div class="article-stats">
-    {{!-- <p>Article number: {{article.id}}</p> --}}
-    <p>Creation date: {{format_date article.article_createDate}}</p>
+    <p>{{format_date article.article_createDate}}</p>
   </div>  
   <div class="article-content">
     <p>{{article.article_content}}</p>
   </div>
-{{!-- </div> --}}
   </a>
-
-{{!-- 
-  <div>  
-  {{#if comments.length}}
-  <div class="col-md-6 project-list">
-    <h3>Current Projects:</h3>
-
-    {{#each comments as |comment|}}
-    if (comment.article_id == article.id) {
-      <div class="row mb-2">
-        <div class="col-md-8">
-          <h4><a href="/project/{{comment.id}}">{{comment.name}}</a></h4>
-        </div>
-        <div class="col-md-4">
-          <button class="btn btn-sm btn-danger" data-id="{{comment.id}}">DELETE</button>
-        </div>
-      </div>
-    }
-    {{/each}}
-  </div>
-  {{/if}}
-  </div> --}}
-
   {{/each}}
   <a href="/create">Create an article</a>
 </div>
