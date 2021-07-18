@@ -87,7 +87,11 @@ router.get('/dashboard', withAuth, async (req, res) => {
       }
 
       const article = articleData.get({ plain: true });
-      res.render('article', { article, loggedIn: req.session.loggedIn });
+      let articleAuthor = false;
+      if (req.session.user_id === article.user_id) {
+        articleAuthor = true;
+      };
+      res.render('article', { article, articleAuthor, loggedIn: req.session.loggedIn });
     } catch (err) {
       console.log(err);
       res.status(500).json(err);

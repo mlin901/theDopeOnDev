@@ -1,27 +1,9 @@
 <div class="menu-container">
-  {{!-- <div class="card-header col-md-12 text-center"> --}}
     <h2>
       Dashboard - Your Blog Posts
     </h2>
-  {{!-- </div> --}}
   {{#each articles as |article|}}
   <a href="/article/{{id}}">
-    {{!-- <div class="article col-md-4">
-      <p>
-        {{article.id}}.
-        {{article.article_title}}
-      </p>
-    </div>
-    <div class="col-md-5">
-      <p>
-        {{article.article_content}}
-      </p>
-    </div>
-    <div class="col-md-3">
-      Creation date: {{article.article_createDate}}
-    </div> --}}
-
-    {{!-- <div class="menu-container"> --}}
   <div class="card-header col-md-12">
     <h3>
       {{article.article_title}}
@@ -38,9 +20,8 @@
       {{article.article_content}}
     </p>
   </div>
-{{!-- </div> --}}
   </a>
-  <a href="article/edit/{{article.id}}">Edit article</a>
+  {{!-- <a href="article/edit/{{article.id}}">Edit article</a> --}}
   <br>
   {{/each}}
   <a href="/create">Create an article</a>

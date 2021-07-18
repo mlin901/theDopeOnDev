@@ -13,9 +13,13 @@
     <p>
       {{article.article_content}}
     </p>
-  </div>
-  <h2>Comments</h2>
 
+  </div>
+  {{#if articleAuthor}}
+    <p><a href="edit/{{article.id}}">Edit article</a></p>
+  {{/if}}
+
+  <h2>Comments</h2>
   {{#if article.comments}}
     <div class="comment-area">
     {{#each article.comments as |comment|}}
@@ -28,8 +32,6 @@
   {{else}}
     <p>There are no comments for this article.</p>
   {{/if}}
-
-  <a href="/addcomment/{{article.id}}">Add comment</a>
-  
+  <p><a href="/addcomment/{{article.id}}">Add comment</a></p>  
  </div>
 
