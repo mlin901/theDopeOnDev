@@ -17,6 +17,8 @@
   </div>
   {{#if articleAuthor}}
     <p><a href="edit/{{article.id}}">Edit article</a></p>
+    {{!-- <p id="delete-article">Delete article</p> --}}
+    <button id="delete-article" class="btn btn-sm btn-danger" data-id="{{article.id}}">DELETE</button>
   {{/if}}
 
   <h2>Comments</h2>
@@ -35,3 +37,4 @@
   <p><a href="/addcomment/{{article.id}}">Add comment</a></p>  
  </div>
 
+<script src="/js/article.js"></script>
