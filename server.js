@@ -42,7 +42,9 @@ const hbs = exphbs.create({ helpers });   // **** may eventually need the "helpe
 const sess = {
   // secret: process.env.SESS_SECRET, // *******Does this work?
   secret: 'somesecret',
-  cookie: {},
+  cookie: {
+    maxAge: 10 * 60 * 1000  // Times out after 10 minutes
+  },
   resave: false,
   saveUninitialized: true,
   store: new SequelizeStore({
