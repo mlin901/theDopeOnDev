@@ -91,7 +91,11 @@ router.get('/dashboard', withAuth, async (req, res) => {
       if (req.session.user_id === article.user_id) {
         articleAuthor = true;
       };
-      res.render('article', { article, articleAuthor, loggedIn: req.session.loggedIn });
+      res.render('article', { 
+        article, 
+        articleAuthor, 
+        logged_in: req.session.logged_in 
+      });
     } catch (err) {
       console.log(err);
       res.status(500).json(err);
@@ -104,7 +108,7 @@ router.get('/dashboard', withAuth, async (req, res) => {
     //   return;
     // }
   
-    res.render('create');
+    res.render('create', {logged_in: req.session.logged_in});
   });
 
   router.get('/login', (req, res) => {
@@ -123,7 +127,10 @@ router.get('/dashboard', withAuth, async (req, res) => {
     //   return;
     // }
     const article = {articleId: req.params.id};
-    res.render('createcomment', article);
+    res.render('createcomment', {
+      article, 
+      logged_in: req.session.logged_in
+    });
   });
 
 
@@ -135,7 +142,10 @@ router.get('/dashboard', withAuth, async (req, res) => {
             return;
         }
         const article = articleData.get({ plain: true });
-        res.render('editArticle', article);
+        res.render('editArticle', {
+          article, 
+          logged_in: req.session.logged_in
+        });
       } catch (err) {
           res.status(500).json(err);
       };     

@@ -8,7 +8,7 @@
     </label>
     <br />
     <textarea id="article_title" name="article_title" rows="2" cols="30">
-      {{article_title}}
+      {{article.article_title}}
     </textarea>
     <br />
     <label for="article_content">
@@ -16,14 +16,14 @@
     </label>
     <br />
     <textarea id="article_content" name="article_content" rows="5" cols="30">
-      {{article_content}}
+      {{article.article_content}}
     </textarea>
     <br />
     <br />
     <button type="submit" value="Submit">
       Submit
     </button>
-    <p id="create-date">{{article_createDate}}</p>
+    <p id="create-date">{{article.article_createDate}}</p>
   </form>
 </div>
 <script src="/js/edit-article.js"></script>
