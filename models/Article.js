@@ -16,14 +16,14 @@ Article.init(   // *****Need to add foreign key stuff
       allowNull: false,
     },
     article_content: {
-      type: DataTypes.STRING,  // ******Is STRING good enough?
+      type: DataTypes.STRING,  
       allowNull: true,
     },
     // article_author: {      
     //   type: DataTypes.INTEGER,
     //   allowNull: false,
     // },
-    article_createDate: {    // ******Needs some sort of date format
+    article_createDate: { 
       type: DataTypes.DATE,
       allowNull: false,
       defaultValue: DataTypes.NOW,

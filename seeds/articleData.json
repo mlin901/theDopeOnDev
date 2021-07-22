@@ -10,8 +10,13 @@
     "user_id": 2
   },
   {
-    "article_title": "Impossible algorithm questions",
-    "article_content": "One way to weed out all candidates for a position is to expect answers to impossible questions. If you don't select any candidate, you won't get a bad one...",
+    "article_title": "Security for the apathetic",
+    "article_content": "If you think that you can ignore security and remain untouched, consider this...",
+    "user_id": 2
+  },
+  {
+    "article_title": "Unanswerable algorithm questions",
+    "article_content": "One way to weed out all candidates for a position is to expect answers to unsolvable questions. If you don't select any candidate, you won't get a bad one...",
     "user_id": 3
   }
 ]
