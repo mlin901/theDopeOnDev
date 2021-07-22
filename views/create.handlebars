@@ -3,10 +3,10 @@
     <h2>Add a blog post!</h2>
     <form class="new-article-form">
       <label for="article_name">
-        Article Title:
+        Article title:
       </label>
       <br />
-      <textarea id="article_name" name="article_name" rows="2" cols="30">
+      <textarea id="article_name" name="article_name" rows="2" cols="50">
       {{article_title}}
     </textarea>
       <br />
@@ -14,11 +14,12 @@
         Content:
       </label>
       <br />
-      <textarea id="article_content" name="article_content" rows="5" cols="30">
+      <textarea id="article_content" name="article_content" rows="8" cols="50">
       {{article_content}}
     </textarea>
-      <br />
-      <button type="submit" value="Submit">
+      <br>
+      <br>
+      <button type="submit" class="btn btn-primary" value="Submit">
         Submit
       </button>
     </form>

@@ -121,7 +121,7 @@ img {
 .login-card {
   margin: 0 0 20px 0;
   flex: 0 0 50%;
-  max-width: 50%;
+  width: 800px;
   padding: 5px;
   border: 3px solid var(--dark);
   border-radius: var(--border-radius);
@@ -168,4 +168,26 @@ img {
 
 #create-date {
   visibility:hidden;
+}
+
+.content-section {
+  background-color: var(--light);
+  border: 2px solid var(--primary);
+  /* border-color: var(--primary); */
+  margin: 6px 6px 10px 6px;
+  padding: 3px 6px 8px 6px;
+  border-radius: 5px;
+}
+
+.menu-container {
+  min-width: 500px;
+}
+
+#logout {
+  color: black;
+}
+
+nav {
+  font-weight: bold;
+  font-size: 1.15em;
 }

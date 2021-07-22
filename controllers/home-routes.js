@@ -28,6 +28,25 @@ router.get('/', async (req, res) => {
     );
     // Serialize data so the template can read it
     const articles = articleData.map((article) => article.get({ plain: true }));
+
+    console.log('&&&&&&&&&&&&&&&');
+    console.log(articles);
+
+    function compare( a, b ) {
+      if ( a.article_createDate > b.article_createDate ){
+        return -1;
+      }
+      if ( a.article_createDate < b.article_createDate ){
+        return 1;
+      }
+      return 0;
+    }
+    
+    articles.sort( compare );
+
+    console.log('^^^^^^^^^^^^');
+    console.log(articles);
+
     // Pass serialized data and session flag into template
     res.render('all', { 
       articles,
@@ -95,11 +114,6 @@ router.get('/dashboard', withAuth, async (req, res) => {
       }
 
       const article = articleData.get({ plain: true });
-      
-      // console.log('::::::::');
-      // console.log(article);
-      // console.log(';;;;;;;;');
-      // console.log(article.user.name);
 
       let articleAuthor = false;
       if (req.session.user_id === article.user_id) {
