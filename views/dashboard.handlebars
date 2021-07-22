@@ -1,28 +1,17 @@
 <div class="menu-container">
-    <h2>
-      Dashboard - Your Blog Posts
-    </h2>
-  {{#each articles as |article|}}
-  <a href="/article/{{id}}">
-  <div class="card-header col-md-12">
-    <h3>
-      {{article.article_title}}
-    </h3>
-  </div>
-  <div class="article-stats">
-    <p>
-      Article number: {{article.id}}<br>
-      Creation date: {{format_date article.article_createDate}}
-    </p>
-  </div>  
-  <div class="article-content">
-    <p>
-      {{article.article_content}}
-    </p>
-  </div>
+  <h2>Dashboard - Your Blog Posts</h2>
+  <a href="/create">
+    <button id="add-article" type="button" class="btn btn-info">Add Article</button>
   </a>
-  {{!-- <a href="article/edit/{{article.id}}">Edit article</a> --}}
-  <br>
-  {{/each}}
-  <a href="/create">Create an article</a>
+{{#each articles as |article|}}
+  <a href="/article/{{id}}">
+    <div class="card">
+      <div class="card-header col-md-12">
+        <h3>{{article.article_title}}</h3>
+        <p style="display:none">{{article.id}}</p>
+        <p>{{format_date article.article_createDate}}</p>
+      </div>  
+    </div>
+  </a>
+{{/each}}
 </div>
