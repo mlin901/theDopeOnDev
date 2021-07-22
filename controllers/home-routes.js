@@ -77,6 +77,14 @@ router.get('/dashboard', withAuth, async (req, res) => {
               'article_id',
               'user_id',
             ],
+          }, 
+          {
+            model: User,
+            attributes: [
+              'id',
+              'name',
+              'email',
+            ]
           },
         ],
       });
@@ -87,6 +95,12 @@ router.get('/dashboard', withAuth, async (req, res) => {
       }
 
       const article = articleData.get({ plain: true });
+      
+      // console.log('::::::::');
+      // console.log(article);
+      // console.log(';;;;;;;;');
+      // console.log(article.user.name);
+
       let articleAuthor = false;
       if (req.session.user_id === article.user_id) {
         articleAuthor = true;
