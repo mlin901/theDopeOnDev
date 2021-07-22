@@ -43,7 +43,7 @@ const sess = {
   // secret: process.env.SESS_SECRET, // *******Does this work?
   secret: 'somesecret',
   cookie: {
-    maxAge: 10 * 60 * 1000  // Times out after 10 minutes
+    maxAge: 30 * 60 * 1000  // Times out after 30 minutes
   },
   resave: false,
   saveUninitialized: true,
