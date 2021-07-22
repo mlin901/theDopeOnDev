@@ -1,18 +1,14 @@
 <div class="menu-container">
-    <h2>Posts</h2>
-    <p>Click a post to add a comment.</p>
-  {{#each articles as |article|}}
+  <h2>Posts</h2>
+  <a href="/create"><button id="add-article" type="button" class="btn btn-info">Add Article</button></a>
+{{#each articles as |article|}}
   <a href="/article/{{id}}">
-  <div class="card-header col-md-12">
-    <h3>{{article.article_title}}</h3>
-  </div>
-  <div class="article-stats">
-    <p>{{format_date article.article_createDate}}</p>
-  </div>  
-  <div class="article-content">
-    <p>{{article.article_content}}</p>
-  </div>
+    <div class="card">
+      <div class="card-header col-md-12">
+        <h3>{{article.article_title}}</h3>
+        <p>{{format_date article.article_createDate}}</p>
+      </div>  
+    </div>
   </a>
-  {{/each}}
-  <a href="/create">Create an article</a>
+{{/each}}
 </div>

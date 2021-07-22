@@ -1,28 +1,15 @@
 <div class="card">
   <div class="add-comment-container">
-    <h2>
-      Add your comment
-    </h2>
     <form class="new-comment-form">
-
-      <label for="comment_content">
-        Your comment:
-      </label>
+      <label for="comment_content">Add your comment:</label>
       <br />
       <textarea id="comment_content" name="comment_content" rows="5" cols="30">
-      {{comment_content}}
-       </textarea>
+        {{comment_content}}
+      </textarea>
       <br />
-      <label for="article_id">
-        Article ID:
-      </label>
+      <p id="article_id" style="display:none">{{article.articleId}}</p>
       <br />
-      <p id="article_id">{{article.articleId}}</p>
-      <br />
-      <button type="submit" value="Submit">
-        Submit
-      </button>
-      <br />
+      <button type="submit" value="Submit">Submit</button>
     </form>
   </div>
 </div>
