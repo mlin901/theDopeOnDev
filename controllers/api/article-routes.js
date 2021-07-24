@@ -16,7 +16,6 @@ router.post('/', withAuth, async (req, res) => {
   }
 });
 
-// This action method is the Controller. It accepts input and sends data to the Model and the View. // *************
 router.put('/:id', withAuth, async (req, res) => {
   // Sending the data to the Model so that one article can be updated with new data in the database.
   try {
