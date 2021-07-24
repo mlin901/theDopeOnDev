@@ -29,8 +29,8 @@ router.get('/', async (req, res) => {
     // Serialize data so the template can read it
     const articles = articleData.map((article) => article.get({ plain: true }));
 
-    console.log('&&&&&&&&&&&&&&&');
-    console.log(articles);
+    // console.log('&&&&&&&&&&&&&&&');
+    // console.log(articles);
 
     function compare( a, b ) {
       if ( a.article_createDate > b.article_createDate ){
@@ -44,8 +44,8 @@ router.get('/', async (req, res) => {
     
     articles.sort( compare );
 
-    console.log('^^^^^^^^^^^^');
-    console.log(articles);
+    // console.log('^^^^^^^^^^^^');
+    // console.log(articles);
 
     // Pass serialized data and session flag into template
     res.render('all', { 
@@ -168,9 +168,9 @@ router.get('/dashboard', withAuth, async (req, res) => {
         if(!articleData) {
             res.status(404).json({message: 'No article with this id!'});
             return;
-        }
+        };
         const article = articleData.get({ plain: true });
-        res.render('editArticle', {
+        res.render('editarticle', {
           article, 
           logged_in: req.session.logged_in
         });

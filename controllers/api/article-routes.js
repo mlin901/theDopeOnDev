@@ -18,8 +18,7 @@ router.post('/', withAuth, async (req, res) => {
 
 router.put('/:id', withAuth, async (req, res) => {
   try {
-    const article = await Article.update(
-      {
+    const article = await Article.update({
         article_title: req.body.article_title,
         article_content: req.body.article_content,
         user_id: req.session.user_id,           
