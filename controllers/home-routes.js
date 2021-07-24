@@ -114,6 +114,7 @@ router.get('/dashboard', withAuth, async (req, res) => {
       }
 
       const article = articleData.get({ plain: true });
+      console.log(article);
 
       let articleAuthor = false;
       if (req.session.user_id === article.user_id) {
@@ -122,7 +123,7 @@ router.get('/dashboard', withAuth, async (req, res) => {
       res.render('article', { 
         article, 
         articleAuthor, 
-        logged_in: req.session.logged_in 
+        logged_in: req.session.logged_in, 
       });
     } catch (err) {
       console.log(err);
