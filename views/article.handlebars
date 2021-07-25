@@ -5,12 +5,12 @@
       <h2>{{article.article_title}}</h2>
       <p>{{article.user.name}}, {{format_date article.article_createDate}}</p>
       <p id="article-number" style="display:none">{{article.id}}</p>
-{{#if articleAuthor}}
+{{!-- {{#if articleAuthor}} --}}
       <a href="edit/{{article.id}}">
         <button id="edit-article" class="btn btn-sm btn-info">Edit article</button>
       </a> 
       <button id="delete-article" class="btn btn-sm btn-danger" data-id="{{article.id}}">Delete Article</button>
-{{/if}}
+{{!-- {{/if}} --}}
     </div>
     <div class="article-content">
       <div class="content-section">
