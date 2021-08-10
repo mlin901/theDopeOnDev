@@ -2,7 +2,7 @@
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
-The Dope on Dev is a blog site application based on Node.js, Handlebars.js, and other technologies. It is deployed on Heroku: 
+The Tech Blog (aka Dope on Dev) is a blog site application based on Node.js, Handlebars.js, and other technologies. It is deployed on Heroku: 
 
   [https://secure-ridge-69918.herokuapp.com/login](https://secure-ridge-69918.herokuapp.com/login)
 
@@ -20,7 +20,7 @@ See [Description](#description) below for more information.
 
 ## Description
 
-The Dope on Dev site enables you to view, add, and edit blog posts. This app follows the MVC paradigm and uses the following technologies:
+This app enables you to view, add, and edit blog posts. This app follows the MVC paradigm and uses the following technologies:
 
 - [Node.js](https://nodejs.org/), which is the JavaScript runtime used for the server
 - The [mysql2](https://www.npmjs.com/package/mysql2) npm package (a "Node.js driver for MySQL) to interface with the MySQL database
@@ -34,7 +34,7 @@ The Dope on Dev site enables you to view, add, and edit blog posts. This app fol
 - The [bcrypt](https://www.npmjs.com/package/bcrypt) npm package for encrypting/decrypting user passwords
 - The [connect-session-sequelize](https://www.npmjs.com/package/connect-session-sequelize) npm package, which is a SQL session store for Sequelize.js
 
-The Dope on Dev web app accesses a MySQL database named techblog_db. (On Heroku, the app uses JawsDB for MySQL.) The code to create and use the MySQL database is in /db/schema.sql. Code to seed this database is in the seeds directory, which can be run by using the following command:
+This web app accesses a MySQL database named techblog_db. (On Heroku, the app uses JawsDB for MySQL.) The code to create and use the MySQL database is in /db/schema.sql. Code to seed this database is in the seeds directory, which can be run by using the following command:
 ```
    node ./seeds/seed.js
 ```
@@ -74,49 +74,4 @@ For more information about the developer, see https://github.com/mlin901.
 
 ## Screenshot 
 
-![TeamTracker application screenshot](./resources/TeamTrackerScreenshot.jpg)
-
-
-***** Old stuff below:
-
-```md
-GIVEN a CMS-style blog site
-WHEN I visit the site for the first time
-✓ THEN I am presented with the homepage, which includes existing blog posts if any have been posted; navigation links for the homepage and the dashboard; and the option to log in 
-⎕ [****might want to change posts into summaries]
-WHEN I click on the homepage option
-✓ THEN I am taken to the homepage
-WHEN I click on any other links in the navigation
-✓ THEN I am prompted to either sign up or sign in
-WHEN I choose to sign up
-✓ THEN I am prompted to create a username and password
-WHEN I click on the sign-up button
-✓ THEN my user credentials are saved and I am logged into the site
-WHEN I revisit the site at a later time and choose to sign in
-⎕?? THEN I am prompted to enter my username and password [***Currently it's asking for email and password]
-WHEN I am signed in to the site
-✓ THEN I see navigation links for the homepage, the dashboard, and the option to log out
-WHEN I click on the homepage option in the navigation
-⎕?? THEN I am taken to the homepage and presented with existing blog posts that include the post title and the date created [***Remove blog content??]
-WHEN I click on an existing blog post
-✓ THEN I am presented with the post title, contents, post creator’s username, and date created for that post and have the option to leave a comment
-WHEN I enter a comment and click on the submit button while signed in 
-✓ THEN the comment is saved and the post is updated to display the comment, the comment creator’s username, and the date created 
-WHEN I click on the dashboard option in the navigation
-✓ THEN I am taken to the dashboard and presented with any blog posts I have already created and the option to add a new blog post
-WHEN I click on the button to add a new blog post
-✓ THEN I am prompted to enter both a title and contents for my blog post
-WHEN I click on the button to create a new blog post
-✓ THEN the title and contents of my post are saved and I am taken back to an updated dashboard with my new blog post
-
-WHEN I click on one of my existing posts in the dashboard
-⎕?? THEN I am able to delete or update my post and taken back to an updated dashboard [**Taken to homepage, not dashboard]
-
-WHEN I click on the logout option in the navigation
-✓ THEN I am signed out of the site
-
-WHEN I am idle on the site for more than a set time
-⎕?? THEN I am able to view comments but I am prompted to log in again before I can add, update, or delete comments
-
-✓ Fix issue that causes logout to disappear (and login to take its place when you're on article detail)
-```
+![Tech Blog screenshot](./resources/TechBlogScreenshot.jpg)
